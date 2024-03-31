@@ -119,6 +119,47 @@ After the verification code is sent to the user's phone, they are prompted to in
   }
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Firebase Email Password Authentication Setup:
+
+To initiate email password authentication with Firebase, developers need to integrate Firebase Authentication within their application environment. The following code snippet illustrates the implementation of email password authentication within a .NET application:
 
 
+public virtual async Task<string> firebaseAuth(userloginModel model)
+{
+    FirebaseAuthProvider auth;
+    string userJsonData = null;
+
+    // Initialize FirebaseAuthProvider with FirebaseConfig
+    auth = new FirebaseAuthProvider(new FirebaseConfig(Configuration["Firebase:apiKey"]));
+    try
+    {
+        // Log in an existing user
+        var fbAuthData = await auth
+                        .SignInWithEmailAndPasswordAsync(model.username, model.userpassword);
+
+        // Serialize authentication data to JSON
+        string jsonData = JsonConvert.SerializeObject(fbAuthData);
+        userJsonData = jsonData;
+
+        // Output Firebase response data
+        Console.WriteLine(jsonData + " firebase response data");
+    }
+    catch (FirebaseAuthException ex)
+    {
+        // Handle FirebaseAuthException
+        Console.WriteLine("Exception: " + ex.Message);
+    }
+    return userJsonData;
+}
+
+
+Initialization: The firebaseAuth method initializes a FirebaseAuthProvider object with the Firebase configuration provided in the application settings.
+
+Authentication: Using the initialized FirebaseAuthProvider, the method attempts to authenticate the user with the provided email and password via the SignInWithEmailAndPasswordAsync method.
+
+Handling Response: Upon successful authentication, the authentication data is serialized to JSON format and stored in userJsonData. Additionally, the Firebase response data is outputted to the console for debugging purposes.
+
+Error Handling: In the event of an authentication error, such as invalid credentials or network issues, a FirebaseAuthException is caught and handled accordingly.
 
