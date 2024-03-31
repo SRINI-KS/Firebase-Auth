@@ -1,0 +1,149 @@
+
+					<!--This code generated from Deliveries Powered by Mahat, Source Machine : 15.206.208.9 , Build Number : Build 14092021 #2021-09-014(Updated on 29102021 12:49) on 03/28/2024 06:41:19 -->
+					@using Microsoft.AspNetCore.Http
+					@inject IHttpContextAccessor HttpContextAccessor
+					@model SProvider.Models.tenantModel
+					@{
+					ViewData["Title"] = "tenant";
+					Layout = "~/Views/Shared/_Layout.cshtml";
+					}
+
+					<div class="">
+					     
+					<div class="">
+
+					      <div id="cma_printableArea">
+	
+                            <div class="row printablerow"> 
+                             
+                            <div class="col-sm-4 col-xs-12 p-2 firstname_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>First Name</label><br>
+										<span class="auto_cls_firstname"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 lastname_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Last Name</label><br>
+										<span class="auto_cls_lastname"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 username_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>username</label><br>
+										<span class="auto_cls_username"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 userrole_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>userrole</label><br>
+										<span class="auto_cls_userrole"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 emailid_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Email ID</label><br>
+										<span class="auto_cls_emailid"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 mobilenumber_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Mobile Number</label><br>
+										<span class="auto_cls_mobilenumber"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+
+											 
+											 
+                            </div>
+                         </div>
+						 <div class="row">
+					            <div class="col-sm-12 col-xs-12">
+					                <input type="button" class="btn cma_primary_button  waves-effect pull-right" onclick="printDiv('cma_printableArea')" value="Print" />
+
+                                    <button type="button" id="btnSubmit" onclick="window.history.back()" class="btn btn-secondary cma_cancel_button waves-effect">Back</button>            
+
+					            </div>
+					        </div>					
+  
+                    </div>
+					
+                    <link href="~/components/jquery-colorbox/colorbox.css" rel="stylesheet" />
+                    <script src="~/components/jquery-colorbox/jquery.colorbox.js"></script>
+                    <link href="~/css/GallaryContent/style.css" rel="stylesheet" />
+                    <link href="~/components/starrr/starrr.css" rel="stylesheet" />
+					 
+					<script type="text/javascript">
+                     function printDiv(divName) {
+                        var printContents = document.getElementById(divName).innerHTML;
+                        var originalContents = document.body.innerHTML;
+
+                        document.body.innerHTML = printContents;
+
+                        window.print();
+
+                        document.body.innerHTML = originalContents;
+                    }
+                    function fill_tenant_view_data(){
+
+                       var  tenantid = getUrlVars()["id"];
+                                            $("#viewDetails_Auto").show()
+											$(".auto_checker_action").hide()
+                                                $.ajax({
+												url: '@Url.Action("getById_sp_all_tenant")',
+												dataType: 'json',
+												data:{tenantid: tenantid },
+												success: function(data) {
+
+												var obj=data.Table[0]
+													for (var key in obj) {
+													
+															$(".auto_cls_"+key).html(obj[key]);
+														 	
+															
+
+													}
+												}
+
+												})
+
+                   }
+                   
+
+					$(document).ready(function () {
+
+
+					fill_tenant_view_data()
+
+
+					var Actions=getAutho("tenant","list")
+					if(Actions == undefined){
+					window.location = "@Url.Action("RoleAuthorizationFailed", "users")"
+					}
+
+
+
+
+					});
+					 
+					</script>
+					 
+					

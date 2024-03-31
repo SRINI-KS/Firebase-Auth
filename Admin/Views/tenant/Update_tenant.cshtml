@@ -1,0 +1,199 @@
+
+			<!-- This code generated from Deliveries Powered by Mahat, Source Machine : 15.206.208.9 , Build Number : Build 14092021 #2021-09-014(Updated on 29102021 12:49) on 03/28/2024 06:41:19 -->
+			@using Microsoft.AspNetCore.Http
+			@inject IHttpContextAccessor HttpContextAccessor
+			@model SProvider.Models.tenantModel
+			@{
+			ViewData["Title"] = "Update SP-ind";
+
+			Layout = "~/Views/Shared/_Layout.cshtml";
+			
+			}
+
+			@using(Html.BeginForm("Update_tenant", "tenant", FormMethod.Post, new { enctype="multipart/form-data", @id = "formId"}))
+			{
+
+			<div class="card card-block contCard"><!--Form_Main_Card-->
+				<div class="mobileHeader"><!--form_card_header-->
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<h4 class="formHdr">Update SP-ind</h4>
+						</div>
+					</div>
+				</div><!--form_card_header-->
+				<!--form_error_display-->
+				@if(ViewData["message"] != null)
+				{
+				<div class="row">
+				<div class="col-sm-12 col-xs-12">
+				<div class="alert alert-danger alert-dismissible ">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">x</span>
+				</button>
+				Info :  @ViewData["message"]
+				</div>
+				</div>
+				</div>
+				}
+				
+				
+				 
+				
+				<!--form_error_display-->
+				<div class=""><!--form_inner_card-->
+					<div class="card-block"><!--form_inner_card_block-->
+					    @Html.HiddenFor(m => m.tenantid)
+						 
+
+						
+						<div class="row"><!--field_container_row-->
+							<!--fieldsStartsHere-->
+								
+								<div class="col-sm-4 col-xs-12 p-2 firstname_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>First Name <b class="iconRed">*</b></label>
+                                @Html.TextBoxFor(m => m.firstname, new {@type="text",@maxlength="50", @class = "form-control form-control-lg required" })
+
+							     @Html.ValidationMessageFor(model => model.firstname)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-4 col-xs-12 p-2 lastname_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Last Name</label>
+                                @Html.TextBoxFor(m => m.lastname, new {@type="text",@maxlength="50", @class = "form-control form-control-lg " })
+
+							     @Html.ValidationMessageFor(model => model.lastname)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-4 col-xs-12 p-2 username_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>username <b class="iconRed">*</b></label>
+                                @Html.TextBoxFor(m => m.username, new {@type="text",@maxlength="150", @class = "form-control form-control-lg required" })
+
+							     @Html.ValidationMessageFor(model => model.username)
+							</div>
+						</div>
+					</div>
+@Html.Hidden("userrole","Client Admin")
+
+<div class="col-sm-4 col-xs-12 p-2 emailid_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Email ID <b class="iconRed">*</b></label>
+                                @Html.TextBoxFor(m => m.emailid, new {@type="email",@maxlength="128", @class = "form-control form-control-lg required" })
+
+							     @Html.ValidationMessageFor(model => model.emailid)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-4 col-xs-12 p-2 mobilenumber_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Mobile Number <b class="iconRed">*</b></label>
+                                @Html.TextBoxFor(m => m.mobilenumber, new {@type="text",@maxlength="20", @class = "form-control form-control-lg required" })
+
+							     @Html.ValidationMessageFor(model => model.mobilenumber)
+							</div>
+						</div>
+					</div>
+
+
+							<!--fieldsEndsHere-->	
+						</div><!--field_container_row-->
+
+
+						<div class="card-block"><!--form_button_card_block-->
+							<button type="button" onclick="window.history.back()"  class="btn btn-secondary cma_cancel_button waves-effect">Cancel</button>
+							<button type="button" id="btnSubmit" class="btn cma_primary_button  waves-effect pull-right">Update SP-ind</button>
+						</div><!--form_button_card_block-->
+
+
+					</div><!--form_inner_card_block-->
+				</div><!--form_inner_card-->
+			</div><!--Form_Main_Card-->
+
+			}<!--EndFORM-->
+
+
+			
+			 
+			 
+			
+			
+			
+			
+			
+			
+			<script>
+			
+			 
+			</script>
+			<script>
+	$(document).ready(function () {
+		
+			$('#formId').validate({
+                                        highlight: function(element) {
+                                        $(element).closest('.form-group').addClass('has-error');
+                                        $(element).closest('.form-group').removeClass('has-success');
+                                        $(element).addClass('form-control-error');
+                                        $(element).removeClass('form-control-success');
+                                        },
+                                        unhighlight: function(element) {
+                                        $(element).closest('.form-group').removeClass('has-error');
+                                        $(element).closest('.form-group').addClass('has-success');
+                                        $(element).addClass('form-control-success');
+                                        $(element).removeClass('form-control-error');
+                                        },
+                                        errorElement: 'span',
+                                        errorClass: 'help-block'
+                                        });
+
+			    var validator = $("#formId").validate({ /* settings */ });
+                                            $("#btnSubmit").click(function(){
+                                                if ($("#formId").valid()){
+                                                        $(".page-loader").show()
+
+														
+                                                        $("#formId").submit();
+                                                }else{
+                                                    validator.focusInvalid();
+                                                    swal({
+                                                        title: 'Validation Failed!',
+                                                        text: "Please check your entry",
+                                                        type: 'error',
+                                                        buttonsStyling: false,
+                                                        confirmButtonClass: 'btn btn-primary'
+                                                    })
+                                                }
+                                            })
+
+
+                                        })
+
+	 
+	</script>
+
+			
+			
+            
+
+			
+			
+<script>
+					$(document).ready(function () {
+						 
+						$("#tenantid").change(function(){
+								 
+						})
+					
+
+					});
+					</script>
+
+
+

@@ -1,0 +1,201 @@
+.cma_top_band{
+background-color:#051c2c !important;
+color:#ffffff  !important;
+}
+.dropdown-item:hover{
+	color:#051c2c !important;
+}
+.top-menu-fixed .header-nav>li.active::after {
+
+background: #ffffff;
+}
+.mainTopMenu > li > a {
+color: #ffffff !important;
+}
+.mainTopMenu > li > a:hover {
+ background:#f6f9ff;
+color: #051c2c !important;
+}
+ 
+.header-page-title{
+color: #4a4a4a !important;
+ text-transform: uppercase !important;
+}
+label {
+    color: #4a4a4a !important;
+    text-transform: uppercase !important;
+}
+ 
+
+.cma_top_band > li > a:hover {
+color: #f6f9ff !important;
+}
+.cma_top_band > li.active > a {
+color: #ffffff !important;
+}
+
+.cma_left_band{
+background-color:#051c2c !important;
+color:#FDFAF7 !important;
+}
+
+
+.gui-controls li>a .title {
+color: #FDFAF7;
+}
+.gui-controls>li>a.active{
+color: #051c2c;
+}
+ 
+
+.cma_left_band_text_color{
+color:#ffffff !important;
+}
+ 
+.card.cma_section_band .card-head {
+    background: #f1f1f1;
+    color: #4a4a4a;
+ 
+}
+ 
+.card.cma_dependent_band .card-head {
+    background: #1f3979;
+    color: #ffffff;
+ 
+}
+.card.card-head{
+	background: #1f3979;
+    color: #ffffff;
+}
+
+.cma_add_button{
+background: #33548f!important;
+}
+
+.cma_primary_button {
+background: #051c2c;
+color: #ffffff !important;
+border-color: #051c2c;
+padding-top: 4px !important;
+margin-bottom: 7px !important;
+text-transform: uppercase;
+
+}
+ 
+.cma_primary_button:hover {
+color: #ffffff !important;
+background-color: #051c2c;
+border-color: #051c2c;
+}
+.cma_primary_button.disabled, .cma_primary_button:disabled {
+background-color: #051c2c;
+border-color: #051c2c;
+}
+.cma_primary_button:active, .cma_primary_button.active, .show > .cma_primary_button.dropdown-toggle {
+color: #FFFFFF;
+background-color: #051c2c;
+background-image: none;
+border-color: #051c2c;
+}
+
+.cma_primary_button-login {
+background-color: #051c2c;
+border-color: #051c2c;
+
+}
+
+.cma_primary_button-login, .cma_primary_button-login:focus {
+color: #FFFFFF;
+}
+.cma_primary_button-login:hover {
+color: #FFFFFF;
+background-color: #051c2c;
+border-color: #051c2c;
+}
+.cma_primary_button-login.disabled, .cma_primary_button-login:disabled {
+background-color: #051c2c;
+border-color: #051c2c;
+}
+.cma_primary_button-login:active, .cma_primary_button-login.active, .show > .cma_primary_button-login.dropdown-toggle {
+color: #FFFFFF;
+background-color: #051c2c;
+background-image: none;
+border-color: #051c2c;
+}
+
+
+
+.cma_secondary_button {
+ 
+background: #33548f;
+color: #ffffff !important;
+border-color: #33548f; 
+text-transform: uppercase;
+
+}
+.cma_secondary_button:hover {
+color: #ffffff !important;
+background-color: #33548f;
+border-color: #33548f; 
+}
+.cma_secondary_button:focus, .cma_secondary_button.focus {
+box-shadow: 0 0 0 0 rgba(134, 142, 150, 0.5); 
+}
+.cma_secondary_button.disabled, .cma_secondary_button:disabled {
+color: #727b84;
+background-color: #33548f;
+border-color: #33548f; 
+}
+.cma_secondary_button:not(:disabled):not(.disabled):active, .cma_secondary_button:not(:disabled):not(.disabled).active,
+.show > .cma_secondary_button.dropdown-toggle {
+color: #FFFFFF;
+background-color: #6c757d;
+border-color: #666e76; 
+}
+.cma_secondary_button:not(:disabled):not(.disabled):active:focus, .cma_secondary_button:not(:disabled):not(.disabled).active:focus,
+.show > .cma_secondary_button.dropdown-toggle:focus {
+box-shadow: 0 0 0 0 rgba(134, 142, 150, 0.5); 
+}
+ 
+.btn--icon{
+	width: 30px;
+    height: 30px;
+    border-radius: 4px !important;
+}
+.btn--icon > i {
+    margin: -5px;
+}
+ 
+
+.cma_cancel_button {
+color: #ffffff !important;
+background: #828282;
+border-color: #828282; 
+text-transform: uppercase;
+
+}
+.cma_cancel_button:hover {
+color: #ffffff !important;
+background-color: #828282;
+border-color: #828282; 
+}
+.cma_cancel_button:focus, .cma_cancel_button.focus {
+box-shadow: 0 0 0 0 rgba(134, 142, 150, 0.5); 
+}
+.cma_cancel_button.disabled, .cma_cancel_button:disabled {
+color: #727b84;
+background-color: #828282;
+border-color: #828282; 
+}
+.cma_cancel_button:not(:disabled):not(.disabled):active, .cma_cancel_button:not(:disabled):not(.disabled).active,
+.show > .cma_cancel_button.dropdown-toggle {
+color: #FFFFFF;
+background-color: #6c757d;
+border-color: #666e76; 
+}
+.cma_cancel_button:not(:disabled):not(.disabled):active:focus, .cma_cancel_button:not(:disabled):not(.disabled).active:focus,
+.show > .cma_cancel_button.dropdown-toggle:focus {
+box-shadow: 0 0 0 0 rgba(134, 142, 150, 0.5); 
+}
+
+

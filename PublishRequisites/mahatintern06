@@ -1,0 +1,100 @@
+server {
+				listen       80;
+				server_name  mahatintern06.craftmyapp.in;
+				location /SProvider/SProviderWebApi/{
+										proxy_pass "http://localhost:10027/";
+										proxy_http_version 1.1;
+										proxy_set_header Upgrade $http_upgrade;
+										proxy_set_header Connection keep-alive;
+										proxy_set_header Host $http_host;
+										proxy_cache_bypass $http_upgrade;
+										}
+location /SProvider/Admin/{
+										proxy_pass "http://localhost:10025/";
+										proxy_http_version 1.1;
+										proxy_set_header Upgrade $http_upgrade;
+										proxy_set_header Connection keep-alive;
+										proxy_set_header Host $http_host;
+										proxy_cache_bypass $http_upgrade;
+										}
+location /ProdList/Admin/{
+									proxy_pass "http://localhost:9998/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /ProdList/ProdListWebApi/{
+									proxy_pass "http://localhost:10000/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /ProdList/Client/{
+									proxy_pass "http://localhost:9999/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /RestHoursPostgres/Admin/{
+									proxy_pass "http://localhost:10004/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /RestHoursPostgres/RestHoursPostgresWebApi/{
+									proxy_pass "http://localhost:10006/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /RestHoursPostgres/Client/{
+									proxy_pass "http://localhost:10005/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /GoogleAuth/Admin/{
+									proxy_pass "http://localhost:10019/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /GoogleAuth/GoogleAuthWebApi/{
+									proxy_pass "http://localhost:10021/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+location /GoogleAuth/Client/{
+									proxy_pass "http://localhost:10020/";
+									proxy_http_version 1.1;
+									proxy_set_header Upgrade $http_upgrade;
+									proxy_set_header Connection keep-alive;
+									proxy_set_header Host $http_host;
+									proxy_cache_bypass $http_upgrade;
+									}
+
+
+					listen 443 ssl; # managed by Certbot
+ ssl_certificate /etc/letsencrypt/live/craftmyapp.in/fullchain.pem; # managed by Certbot
+
+ ssl_certificate_key /etc/letsencrypt/live/craftmyapp.in/privkey.pem; # managed by Certbot
+ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+ ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+				}

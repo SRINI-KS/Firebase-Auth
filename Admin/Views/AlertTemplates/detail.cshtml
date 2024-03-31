@@ -1,0 +1,167 @@
+
+					<!--This code generated from Deliveries Powered by Mahat, Source Machine : 15.206.208.9 , Build Number : Build 14092021 #2021-09-014(Updated on 29102021 12:49) on 03/28/2024 06:41:20 -->
+					@using Microsoft.AspNetCore.Http
+					@inject IHttpContextAccessor HttpContextAccessor
+					@model SProvider.Models.AlertTemplatesModel
+					@{
+					ViewData["Title"] = "AlertTemplates";
+					Layout = "~/Views/Shared/_Layout.cshtml";
+					}
+
+					<div class="">
+					     
+					<div class="">
+
+					      <div id="cma_printableArea">
+	
+                            <div class="row printablerow"> 
+                             
+                            <div class="col-sm-4 col-xs-12 p-2 entityname_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Entity Name</label><br>
+										<span class="auto_cls_entityname"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 entityaction_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Entity Action</label><br>
+										<span class="auto_cls_entityaction"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 sendasbatch_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Send as Batch?</label><br>
+										<span class="auto_cls_sendasbatch"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 alerttype_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Alert Type</label><br>
+										<span class="auto_cls_alerttype"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 alertsubject_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Alert Subject</label><br>
+										<span class="auto_cls_alertsubject"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 alertcopyto_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Alert Copy To</label><br>
+										<span class="auto_cls_alertcopyto"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 alertcarboncopyto_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Alert Carbon Copy To </label><br>
+										<span class="auto_cls_alertcarboncopyto"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+<div class="col-sm-4 col-xs-12 p-2 alertcontent_craftmyapp_viewcontainer">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Alert Content</label><br>
+										<span class="auto_cls_alertcontent"></span>
+										<i class="form-group__bar" ></i>
+									</div>
+								</div>
+							</div>
+
+											 
+											 
+                            </div>
+                         </div>
+						 <div class="row">
+					            <div class="col-sm-12 col-xs-12">
+					                <input type="button" class="btn cma_primary_button  waves-effect pull-right" onclick="printDiv('cma_printableArea')" value="Print" />
+
+                                    <button type="button" id="btnSubmit" onclick="window.history.back()" class="btn btn-secondary cma_cancel_button waves-effect">Back</button>            
+
+					            </div>
+					        </div>					
+  
+                    </div>
+					
+                    <link href="~/components/jquery-colorbox/colorbox.css" rel="stylesheet" />
+                    <script src="~/components/jquery-colorbox/jquery.colorbox.js"></script>
+                    <link href="~/css/GallaryContent/style.css" rel="stylesheet" />
+                    <link href="~/components/starrr/starrr.css" rel="stylesheet" />
+					 
+					<script type="text/javascript">
+                     function printDiv(divName) {
+                        var printContents = document.getElementById(divName).innerHTML;
+                        var originalContents = document.body.innerHTML;
+
+                        document.body.innerHTML = printContents;
+
+                        window.print();
+
+                        document.body.innerHTML = originalContents;
+                    }
+                    function fill_AlertTemplates_view_data(){
+
+                       var  AlertTemplatesid = getUrlVars()["id"];
+                                            $("#viewDetails_Auto").show()
+											$(".auto_checker_action").hide()
+                                                $.ajax({
+												url: '@Url.Action("getById_sp_all_AlertTemplates")',
+												dataType: 'json',
+												data:{AlertTemplatesid: AlertTemplatesid },
+												success: function(data) {
+
+												var obj=data.Table[0]
+													for (var key in obj) {
+													
+															$(".auto_cls_"+key).html(obj[key]);
+														 	
+															
+
+													}
+												}
+
+												})
+
+                   }
+                   
+
+					$(document).ready(function () {
+
+
+					fill_AlertTemplates_view_data()
+
+
+					var Actions=getAutho("AlertTemplates","list")
+					if(Actions == undefined){
+					window.location = "@Url.Action("RoleAuthorizationFailed", "users")"
+					}
+
+
+
+
+					});
+					 
+					</script>
+					 
+					

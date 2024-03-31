@@ -1,0 +1,21 @@
+<!-- This code generated from Deliveries Powered by Mahat, Source Machine : 15.206.208.9 , Build Number : Build 14092021 #2021-09-014(Updated on 29102021 12:49) on 03/28/2024 06:41:19 -->
+@using Microsoft.AspNetCore.Http
+<aside class="sidebar">
+<div class="scrollbar-inner">
+<div class="user">
+<div class="user__info" data-toggle="dropdown">
+<div>
+<div class="user__name" style="color: white">@Context.Session.GetString("SProviderusername")</div>
+</div>
+<i style="padding-left:20px;" class="fas fa-chevron-down"></i>
+</div>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="@Url.Action("UpdateProfile","users")?usersid=@Context.Session.GetString("SProviderloginUserID")">Update Profile</a>
+<a class="dropdown-item craftmyApp_logout_btn" href="@Url.Action("Logout","users")">Logout</a>
+</div>
+</div>
+<ul class="navigation mainSideMenu">
+</ul>
+</div>
+</aside>
+

@@ -1,0 +1,231 @@
+
+			<!-- This code generated from Deliveries Powered by Mahat, Source Machine : 15.206.208.9 , Build Number : Build 14092021 #2021-09-014(Updated on 29102021 12:49) on 03/28/2024 06:41:21 -->
+			@using Microsoft.AspNetCore.Http
+			@inject IHttpContextAccessor HttpContextAccessor
+			@model SProvider.Models.MailLogsModel
+			@{
+			ViewData["Title"] = "Create MailLog";
+
+			Layout = "~/Views/Shared/_Layout.cshtml";
+			
+			}
+
+			@using(Html.BeginForm("Create_MailLog", "MailLogs", FormMethod.Post, new { enctype="multipart/form-data", @id = "formId"}))
+			{
+
+			<div class="card card-block contCard"><!--Form_Main_Card-->
+				<div class="mobileHeader"><!--form_card_header-->
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<h4 class="formHdr">Create MailLog</h4>
+						</div>
+					</div>
+				</div><!--form_card_header-->
+				<!--form_error_display-->
+				@if(ViewData["message"] != null)
+				{
+				<div class="row">
+				<div class="col-sm-12 col-xs-12">
+				<div class="alert alert-danger alert-dismissible ">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">x</span>
+				</button>
+				Info :  @ViewData["message"]
+				</div>
+				</div>
+				</div>
+				}
+				
+				
+				 
+				
+				<!--form_error_display-->
+				<div class=""><!--form_inner_card-->
+					<div class="card-block"><!--form_inner_card_block-->
+					    @Html.HiddenFor(m => m.MailLogsid)
+						 
+
+						
+						<div class="row"><!--field_container_row-->
+							<!--fieldsStartsHere-->
+								
+								<div class="col-sm-3 col-xs-12 p-2 entityname_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Entity Name <b class="iconRed">*</b></label>
+                                @Html.TextBoxFor(m => m.entityname, new {@type="text",@maxlength="128", @class = "form-control form-control-lg required" })
+
+							     @Html.ValidationMessageFor(model => model.entityname)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-3 col-xs-12 p-2 entityid_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Entity ID</label>
+                                @Html.TextBoxFor(m => m.entityid, new {@type="text",@maxlength="128", @class = "form-control form-control-lg " })
+
+							     @Html.ValidationMessageFor(model => model.entityid)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-3 col-xs-12 p-2 mailfor_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Mail For</label>
+                                @Html.TextBoxFor(m => m.mailfor, new {@type="text",@maxlength="256", @class = "form-control form-control-lg " })
+
+							     @Html.ValidationMessageFor(model => model.mailfor)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-3 col-xs-12 p-2 mailsubject_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Mail To</label>
+                                @Html.TextBoxFor(m => m.mailsubject, new {@type="text",@maxlength="256", @class = "form-control form-control-lg " })
+
+							     @Html.ValidationMessageFor(model => model.mailsubject)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-3 col-xs-12 p-2 mailto_craftmyapp_container">
+						<div>
+							<div class="form-group" > 
+								<label>Mail Subject</label>
+                                @Html.TextBoxFor(m => m.mailto, new {@type="text",@maxlength="50", @class = "form-control form-control-lg " })
+
+							     @Html.ValidationMessageFor(model => model.mailto)
+							</div>
+						</div>
+					</div>
+<div class="col-sm-12 col-xs-12 p-2 mailbody_craftmyapp_container">
+								<div>
+									<div class="form-group form-group--float-above my-3" > 
+										<label>Mail Body</label>
+															@Html.TextAreaFor(m => m.mailbody, new {@class = "form-control wysiwyg-editor " })
+
+										<i class="form-group__bar" ></i>
+									</div>
+									@Html.ValidationMessageFor(model => model.mailbody)
+									<label id="mailbody-error" class="help-block" style="display: none" for="mailbody"></label>
+								</div>
+							</div>
+<div class="col-sm-3 col-xs-12 p-4 issent_craftmyapp_container">
+							<div>
+
+							<label>Is Sent ?</label><br>
+							<div class="form-group">
+                                                        <div>
+                                                          <label class="switch">
+                                                          @Html.CheckBoxFor(m => m.issent,new {@class = "" })
+                                                           
+                                                          <span class="slider round"></span>
+                                                        </label>
+                                                        </div>
+                                                      </div>
+
+							</div>
+							</div>
+
+
+							<!--fieldsEndsHere-->	
+						</div><!--field_container_row-->
+
+
+						<div class="card-block"><!--form_button_card_block-->
+							<button type="button" onclick="window.history.back()"  class="btn btn-secondary cma_cancel_button waves-effect">Cancel</button>
+							<button type="button" id="btnSubmit" class="btn cma_primary_button  waves-effect pull-right">Create MailLog</button>
+						</div><!--form_button_card_block-->
+
+
+					</div><!--form_inner_card_block-->
+				</div><!--form_inner_card-->
+			</div><!--Form_Main_Card-->
+
+			}<!--EndFORM-->
+
+
+			
+			 
+			 <script type="text/javascript">
+				$(document).ready(function () {
+
+
+				var Actions=getAutho("MailLogs","create")
+				if(Actions == undefined){
+				window.location = "@Url.Action("RoleAuthorizationFailed", "users")"
+				}
+
+
+				});
+				</script>
+			
+			<link href="~/components/trumbowyg/dist/ui/trumbowyg.css" rel="stylesheet" />
+<script src="~/components/trumbowyg/dist/trumbowyg.js"></script>
+<script>$('#mailbody').trumbowyg();</script>
+
+			
+			
+			
+			
+			<script>
+			
+			 
+			</script>
+			<script>
+	$(document).ready(function () {
+		
+			$('#formId').validate({
+                                        highlight: function(element) {
+                                        $(element).closest('.form-group').addClass('has-error');
+                                        $(element).closest('.form-group').removeClass('has-success');
+                                        $(element).addClass('form-control-error');
+                                        $(element).removeClass('form-control-success');
+                                        },
+                                        unhighlight: function(element) {
+                                        $(element).closest('.form-group').removeClass('has-error');
+                                        $(element).closest('.form-group').addClass('has-success');
+                                        $(element).addClass('form-control-success');
+                                        $(element).removeClass('form-control-error');
+                                        },
+                                        errorElement: 'span',
+                                        errorClass: 'help-block'
+                                        });
+
+			    var validator = $("#formId").validate({ /* settings */ });
+                                            $("#btnSubmit").click(function(){
+                                                if ($("#formId").valid()){
+                                                        $(".page-loader").show()
+
+														
+                                                        $("#formId").submit();
+                                                }else{
+                                                    validator.focusInvalid();
+                                                    swal({
+                                                        title: 'Validation Failed!',
+                                                        text: "Please check your entry",
+                                                        type: 'error',
+                                                        buttonsStyling: false,
+                                                        confirmButtonClass: 'btn btn-primary'
+                                                    })
+                                                }
+                                            })
+
+
+                                        })
+
+	 
+	</script>
+
+			
+			
+            
+
+			
+			
+
+
+
+
+
